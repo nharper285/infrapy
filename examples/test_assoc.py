@@ -21,7 +21,7 @@ if __name__ == '__main__':
     #########################
 
     # Read in detections from file
-    det_list = data_io.json_to_detection_list('data/example1.dets.json')
+    det_list = data_io.json_to_detection_list('test-rainier/results.dets.json')
 
     # define joint-likelihood calculation parameters
     width = 10.0

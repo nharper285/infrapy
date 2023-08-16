@@ -1,0 +1,117 @@
+[
+    {
+        "Name": "",
+        "Time (UTC)": "2012-04-09T18:07:05.008300",
+        "F Stat.": 31.9058,
+        "Trace Vel. (m/s)": 370.97,
+        "Back Azimuth": -41.84,
+        "Latitude": 39.4727,
+        "Longitude": -110.741,
+        "Elevation (m)": null,
+        "Start": 0.0,
+        "End": 5.0,
+        "Freq Range": [
+            1.0,
+            5.0
+        ],
+        "Array Dim.": 4,
+        "Method": "bartlett",
+        "Event": "",
+        "Note": "InfraPy CLI detection",
+        "Network": "YJ",
+        "Station": "BRP",
+        "Channel": "EDF"
+    },
+    {
+        "Name": "",
+        "Time (UTC)": "2012-04-09T18:10:20.008300",
+        "F Stat.": 8.7948,
+        "Trace Vel. (m/s)": 333.29,
+        "Back Azimuth": -111.29,
+        "Latitude": 39.4727,
+        "Longitude": -110.741,
+        "Elevation (m)": null,
+        "Start": -5.0,
+        "End": 15.0,
+        "Freq Range": [
+            1.0,
+            5.0
+        ],
+        "Array Dim.": 4,
+        "Method": "bartlett",
+        "Event": "",
+        "Note": "InfraPy CLI detection",
+        "Network": "YJ",
+        "Station": "BRP",
+        "Channel": "EDF"
+    },
+    {
+        "Name": "",
+        "Time (UTC)": "2012-04-09T18:11:30.008300",
+        "F Stat.": 51.8404,
+        "Trace Vel. (m/s)": 335.19,
+        "Back Azimuth": -109.53,
+        "Latitude": 39.4727,
+        "Longitude": -110.741,
+        "Elevation (m)": null,
+        "Start": -35.0,
+        "End": 85.0,
+        "Freq Range": [
+            1.0,
+            5.0
+        ],
+        "Array Dim.": 4,
+        "Method": "bartlett",
+        "Event": "",
+        "Note": "InfraPy CLI detection",
+        "Network": "YJ",
+        "Station": "BRP",
+        "Channel": "EDF"
+    },
+    {
+        "Name": "",
+        "Time (UTC)": "2012-04-09T18:13:50.008300",
+        "F Stat.": 68.6419,
+        "Trace Vel. (m/s)": 358.12,
+        "Back Azimuth": -38.81,
+        "Latitude": 39.4727,
+        "Longitude": -110.741,
+        "Elevation (m)": null,
+        "Start": -20.0,
+        "End": 40.0,
+        "Freq Range": [
+            1.0,
+            5.0
+        ],
+        "Array Dim.": 4,
+        "Method": "bartlett",
+        "Event": "",
+        "Note": "InfraPy CLI detection",
+        "Network": "YJ",
+        "Station": "BRP",
+        "Channel": "EDF"
+    },
+    {
+        "Name": "",
+        "Time (UTC)": "2012-04-09T18:14:50.008300",
+        "F Stat.": 8.7396,
+        "Trace Vel. (m/s)": 359.74,
+        "Back Azimuth": -38.2,
+        "Latitude": 39.4727,
+        "Longitude": -110.741,
+        "Elevation (m)": null,
+        "Start": 0.0,
+        "End": 5.0,
+        "Freq Range": [
+            1.0,
+            5.0
+        ],
+        "Array Dim.": 4,
+        "Method": "bartlett",
+        "Event": "",
+        "Note": "InfraPy CLI detection",
+        "Network": "YJ",
+        "Station": "BRP",
+        "Channel": "EDF"
+    }
+]

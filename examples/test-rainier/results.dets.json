@@ -1,0 +1,19 @@
+[
+    {
+        "Name": "",
+        "Time (UTC)": "2023-05-08T13:13:06.940000",
+        "F Stat.": 1.98,
+        "Trace Vel. (m/s)": 382.72,
+        "Back Azimuth": 25.42,
+        "Latitude": 46.92976,
+        "Longitude":  -121.98847,
+        "Elevation (m)": null,
+        "Start": null,
+        "End": null,
+        "Freq Range": null,
+        "Array Dim.":  3,
+        "Method": "",
+        "Event": "",
+        "Note": ""
+    }
+]

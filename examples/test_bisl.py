@@ -21,15 +21,15 @@ grnd_trth = [41.131, -112.896, np.datetime64('2004-06-02T17:23:04.0')]
 
 # Define localization parameters
 bm_width = 12.5
-rad_min, rad_max = 50.0, 500.0
-rng_max = np.pi / 2.0 * 6370.0
+rad_min, rad_max = 5.0, 50.0
+rng_max = 100
 resolution = int(np.sqrt(1e5))
 
 # Load detection list from json file
-det_list = data_io.json_to_detection_list('data/example2.dets.json')
-
+det_list = data_io.json_to_detection_list('PR04/results.dets.json')
+# detection_region = [46.8523, 121.7603, 100]
 # Plot detections
-vis.plot_dets_on_map(det_list)
+vis.plot_dets_on_map(det_list, range_max=rng_max)
 
 # ########################## #
 #          Run BISL          #
@@ -42,7 +42,8 @@ result = bisl.run(det_list,
                     rad_min=rad_min, 
                     rad_max=rad_max, 
                     rng_max=rng_max, 
-                    resol=resolution,angle=[-180,180])
+                    resol=resolution,angle=[-180,180]) 
+                    # custom_region=detection_region)
 
 print('-' * 75)
 print('BISL Summary\n')
@@ -55,22 +56,22 @@ print('\n' + '-'*75 + '\n')
 vis.plot_loc(det_list, result)
 
 # Define priors, load from file, and display
-model = infsnd.PathGeometryModel()
-model.load("../infrapy/propagation/priors/UTTR_models/UTTR_06_1800UTC.pgm")
+# model = infsnd.PathGeometryModel()
+# model.load("../infrapy/propagation/priors/UTTR_models/UTTR_06_1800UTC.pgm")
 
-# Re-run analysis with priors
-result = bisl.run(det_list, 
-                    bm_width=bm_width,
-                    rad_min=rad_min, 
-                    rad_max=rad_max, 
-                    rng_max=rng_max, 
-                    resol=resolution,angle=[-180,180],
-                    path_geo_model=model)
+# # Re-run analysis with priors
+# result = bisl.run(det_list, 
+#                     bm_width=bm_width,
+#                     rad_min=rad_min, 
+#                     rad_max=rad_max, 
+#                     rng_max=rng_max, 
+#                     resol=resolution,angle=[-180,180],
+#                     path_geo_model=model)
 
 
-print('-' * 75)
-print('BISL Summary\n')
-print(bisl.summarize(result))
-print('\n' + '-'*75 + '\n')
+# print('-' * 75)
+# print('BISL Summary\n')
+# print(bisl.summarize(result))
+# print('\n' + '-'*75 + '\n')
 
-vis.plot_loc(det_list, result)
+# vis.plot_loc(det_list, result)

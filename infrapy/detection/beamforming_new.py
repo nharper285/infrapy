@@ -87,6 +87,7 @@ def stream_to_array_data(stream, latlon=None, t_start=None, t_end=None):
         # Or using 'Coordinate' from stats
         # ...
     else:
+        print(len(stream))
         for m in range(0, len(stream)):
             temp = wgs84_proj.inv(latlon[0][1], latlon[0][0], latlon[m][1], latlon[m][0])
             dxdy[m] = np.array((temp[2] * np.sin(np.radians(temp[0])), temp[2] * np.cos(np.radians(temp[0]))))

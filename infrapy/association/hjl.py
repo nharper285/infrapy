@@ -81,8 +81,8 @@ def set_region(det1, det2, bm_width=10.0, rng_max=np.pi / 2.0 * 6370.0, rad_min=
 
         """
 
-    latlon1 = np.array([det1.latitude, det1.longitude], dtype=np.float)
-    latlon2 = np.array([det2.latitude, det2.longitude], dtype=np.float)
+    latlon1 = np.array([det1.latitude, det1.longitude], dtype=float)
+    latlon2 = np.array([det2.latitude, det2.longitude], dtype=float)
 
     if np.allclose(latlon1, latlon2):
         # if detections are on the same array, center is the array location and radius is the maximum value
@@ -629,6 +629,7 @@ def run(det_list, threshold, dist_max=10.0, bm_width=10.0, rng_max=np.pi / 2.0 *
         dists = np.array(build_distance_matrix(det_list, bm_width=bm_width, rng_max=rng_max, rad_min=rad_min, rad_max=rad_max, resol=resol, pool=pool, progress=prg_bar))
         dists[dists > dist_max] = dist_max
         print('\t' + "Clustering detections into events...")
+        print(dists)
         _, labels, sorted_dists = cluster(dists, threshold, linkage_method=linkage_method, show_result=show_result)
 
     # Trim clusters with poor shape
@@ -648,6 +649,7 @@ def run(det_list, threshold, dist_max=10.0, bm_width=10.0, rng_max=np.pi / 2.0 *
                 dists_new[indices[0], indices[1]] = dist_max
                 dists_new[indices[1], indices[0]] = dist_max
 
+            print(dists_new)
             if file_id:
                 _, labels, _ = cluster(dists_new, threshold * trim_thresh_scalar, linkage_method=linkage_method, show_result=show_result, file_id=file_id + "-trim", trim_indices=trim_indices)
             else:

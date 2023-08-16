@@ -1,0 +1,163 @@
+[
+    {
+        "Name": "",
+        "Time (UTC)": "2023-05-08T13:08:35.940000",
+        "F Stat.": 2.4227,
+        "Trace Vel. (m/s)": 496.4,
+        "Back Azimuth": -169.19,
+        "Latitude": 46.92976,
+        "Longitude": -121.98847,
+        "Elevation (m)": null,
+        "Start": -1.0,
+        "End": 0.0,
+        "Freq Range": [
+            1.0,
+            10.0
+        ],
+        "Array Dim.": 3,
+        "Method": "bartlett",
+        "Event": "",
+        "Note": "InfraPy CLI detection",
+        "Network": "CC",
+        "Station": "PR04",
+        "Channel": "BDF"
+    },
+    {
+        "Name": "",
+        "Time (UTC)": "2023-05-08T13:08:48.940000",
+        "F Stat.": 2.7819,
+        "Trace Vel. (m/s)": 557.16,
+        "Back Azimuth": -168.24,
+        "Latitude": 46.92976,
+        "Longitude": -121.98847,
+        "Elevation (m)": null,
+        "Start": -1.0,
+        "End": 1.0,
+        "Freq Range": [
+            1.0,
+            10.0
+        ],
+        "Array Dim.": 3,
+        "Method": "bartlett",
+        "Event": "",
+        "Note": "InfraPy CLI detection",
+        "Network": "CC",
+        "Station": "PR04",
+        "Channel": "BDF"
+    },
+    {
+        "Name": "",
+        "Time (UTC)": "2023-05-08T13:09:56.940000",
+        "F Stat.": 2.4659,
+        "Trace Vel. (m/s)": 338.45,
+        "Back Azimuth": 9.39,
+        "Latitude": 46.92976,
+        "Longitude": -121.98847,
+        "Elevation (m)": null,
+        "Start": 0.0,
+        "End": 1.0,
+        "Freq Range": [
+            1.0,
+            10.0
+        ],
+        "Array Dim.": 3,
+        "Method": "bartlett",
+        "Event": "",
+        "Note": "InfraPy CLI detection",
+        "Network": "CC",
+        "Station": "PR04",
+        "Channel": "BDF"
+    },
+    {
+        "Name": "",
+        "Time (UTC)": "2023-05-08T13:12:52.940000",
+        "F Stat.": 13.8551,
+        "Trace Vel. (m/s)": 598.12,
+        "Back Azimuth": -162.06,
+        "Latitude": 46.92976,
+        "Longitude": -121.98847,
+        "Elevation (m)": null,
+        "Start": -9.0,
+        "End": 47.0,
+        "Freq Range": [
+            1.0,
+            10.0
+        ],
+        "Array Dim.": 3,
+        "Method": "bartlett",
+        "Event": "",
+        "Note": "InfraPy CLI detection",
+        "Network": "CC",
+        "Station": "PR04",
+        "Channel": "BDF"
+    },
+    {
+        "Name": "",
+        "Time (UTC)": "2023-05-08T13:19:44.940000",
+        "F Stat.": 2.4604,
+        "Trace Vel. (m/s)": 598.13,
+        "Back Azimuth": 141.9,
+        "Latitude": 46.92976,
+        "Longitude": -121.98847,
+        "Elevation (m)": null,
+        "Start": -1.0,
+        "End": 0.0,
+        "Freq Range": [
+            1.0,
+            10.0
+        ],
+        "Array Dim.": 3,
+        "Method": "bartlett",
+        "Event": "",
+        "Note": "InfraPy CLI detection",
+        "Network": "CC",
+        "Station": "PR04",
+        "Channel": "BDF"
+    },
+    {
+        "Name": "",
+        "Time (UTC)": "2023-05-08T13:20:08.940000",
+        "F Stat.": 2.7811,
+        "Trace Vel. (m/s)": 598.14,
+        "Back Azimuth": 6.66,
+        "Latitude": 46.92976,
+        "Longitude": -121.98847,
+        "Elevation (m)": null,
+        "Start": -3.0,
+        "End": 1.0,
+        "Freq Range": [
+            1.0,
+            10.0
+        ],
+        "Array Dim.": 3,
+        "Method": "bartlett",
+        "Event": "",
+        "Note": "InfraPy CLI detection",
+        "Network": "CC",
+        "Station": "PR04",
+        "Channel": "BDF"
+    },
+    {
+        "Name": "",
+        "Time (UTC)": "2023-05-08T13:20:19.940000",
+        "F Stat.": 3.1767,
+        "Trace Vel. (m/s)": 498.19,
+        "Back Azimuth": -5.28,
+        "Latitude": 46.92976,
+        "Longitude": -121.98847,
+        "Elevation (m)": null,
+        "Start": -1.0,
+        "End": 4.0,
+        "Freq Range": [
+            1.0,
+            10.0
+        ],
+        "Array Dim.": 3,
+        "Method": "bartlett",
+        "Event": "",
+        "Note": "InfraPy CLI detection",
+        "Network": "CC",
+        "Station": "PR04",
+        "Channel": "BDF"
+    }
+]

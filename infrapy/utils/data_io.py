@@ -312,7 +312,7 @@ def fk_header(stream, latlon, freq_min, freq_max, back_az_min, back_az_max, back
 
     header = header + '\n' + "  channel_cnt: " + str(len(stream)) + '\n'
 
-    if latlon:
+    if latlon is not None:
         mean_lat = latlon[0][0]
         mean_lon = latlon[0][1]
     else:
@@ -537,7 +537,7 @@ def detection_list_to_json(filename, detections, stream_info=None):
     stream_info: list
         Network, station, and channel info
     """
-
+    print(detections)
     if type(detections[0]) == lklhds.InfrasoundDetection:
         output = []
         for entry in detections:

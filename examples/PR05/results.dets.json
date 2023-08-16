@@ -1,0 +1,94 @@
+[
+    {
+        "Name": "",
+        "Time (UTC)": "2023-05-08T13:10:07.940000",
+        "F Stat.": 6.5013,
+        "Trace Vel. (m/s)": 299.42,
+        "Back Azimuth": -36.72,
+        "Latitude": 46.841748,
+        "Longitude": -121.948853,
+        "Elevation (m)": null,
+        "Start": -2.0,
+        "End": 3.0,
+        "Freq Range": [
+            1.0,
+            10.0
+        ],
+        "Array Dim.": 3,
+        "Method": "bartlett",
+        "Event": "",
+        "Note": "InfraPy CLI detection",
+        "Network": "CC",
+        "Station": "PR05",
+        "Channel": "BDF"
+    },
+    {
+        "Name": "",
+        "Time (UTC)": "2023-05-08T13:12:33.940000",
+        "F Stat.": 87.7665,
+        "Trace Vel. (m/s)": 379.95,
+        "Back Azimuth": 73.3,
+        "Latitude": 46.841748,
+        "Longitude": -121.948853,
+        "Elevation (m)": null,
+        "Start": -5.0,
+        "End": 54.0,
+        "Freq Range": [
+            1.0,
+            10.0
+        ],
+        "Array Dim.": 3,
+        "Method": "bartlett",
+        "Event": "",
+        "Note": "InfraPy CLI detection",
+        "Network": "CC",
+        "Station": "PR05",
+        "Channel": "BDF"
+    },
+    {
+        "Name": "",
+        "Time (UTC)": "2023-05-08T13:15:08.940000",
+        "F Stat.": 4.3084,
+        "Trace Vel. (m/s)": 348.68,
+        "Back Azimuth": -113.63,
+        "Latitude": 46.841748,
+        "Longitude": -121.948853,
+        "Elevation (m)": null,
+        "Start": -1.0,
+        "End": 1.0,
+        "Freq Range": [
+            1.0,
+            10.0
+        ],
+        "Array Dim.": 3,
+        "Method": "bartlett",
+        "Event": "",
+        "Note": "InfraPy CLI detection",
+        "Network": "CC",
+        "Station": "PR05",
+        "Channel": "BDF"
+    },
+    {
+        "Name": "",
+        "Time (UTC)": "2023-05-08T13:17:43.940000",
+        "F Stat.": 4.2508,
+        "Trace Vel. (m/s)": 352.19,
+        "Back Azimuth": -116.79,
+        "Latitude": 46.841748,
+        "Longitude": -121.948853,
+        "Elevation (m)": null,
+        "Start": 0.0,
+        "End": 1.0,
+        "Freq Range": [
+            1.0,
+            10.0
+        ],
+        "Array Dim.": 3,
+        "Method": "bartlett",
+        "Event": "",
+        "Note": "InfraPy CLI detection",
+        "Network": "CC",
+        "Station": "PR05",
+        "Channel": "BDF"
+    }
+]

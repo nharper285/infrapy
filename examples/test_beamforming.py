@@ -21,23 +21,32 @@ from obspy.core import read
 from scipy import signal
 
 from infrapy.detection import beamforming_new
+from infrapy.utils.latlon import fixlatlon
 
 if __name__ == '__main__':
     # ######################### #
     #     Define Parameters     #
     # ######################### #
-    sac_glob = "data/*.SAC"
-
+    sac_glob = "KAUT/*.SAC"
+    
     freq_min, freq_max = 0.5, 2.5
-    window_length, window_step = 10.0, 2.5
+    window_length, window_step = 20.0, 1.0
 
     ns_start, ns_end = 100.0, 400.0
-    sig_start, sig_end = 600, 800
+    sig_start, sig_end = 0, 850
 
     back_az_vals = np.arange(-180.0, 180.0, 1.5)
     trc_vel_vals = np.arange(300.0, 600.0, 2.5)
 
     method="bartlett"
+    # lat_lon = [[46.740208, -121.916966], [46.740163, -121.916765], [46.740088, -121.916968]] # GTW_Y_
+    lat_lon = [[46.963808, -122.08058], [46.963597, -122.080718], [46.963646, -122.080262]] # KAU_T_
+    # lat_lon = [[46.78665, -121.74226], [46.786445, -121.74189], [46.786401, -121.742169]] # PAR_A_
+    # lat_lon = [[46.92976, -121.98847], [46.92982, -121.98924], [46.93017, -121.98831]] # PR0_4_
+    # lat_lon = [[46.84195, -121.94906], [46.8417, -121.9487], [46.8418, -121.948967]] # PR0_5_
+    # lat_lon = [[46.963808, -122.08058], [46.963597, -122.080718], [46.963646, -122.080262]] # STY_X_
+    # lat_lon = [[46.740208, -121.916966], [46.730263, -121.857381], [46.786441, -121.742195], [46.929773, -121.988592], [46.841723, -121.948863], [46.963747, -122.080535], [46.7957, -121.88423]]
+    
 
     #p = mp.ProcessingPool(cpu_count())
     p = Pool(cpu_count() - 1)
@@ -45,7 +54,13 @@ if __name__ == '__main__':
     #  Read, Shift Start Time,  #
     #      and Filter Data      #
     # ######################### #
-    x, t, t0, geom = beamforming_new.stream_to_array_data(read(sac_glob))
+    # x, t, t0, geom = beamforming_new.stream_to_array_data(read(sac_glob))
+    x, t, t0, geom = beamforming_new.stream_to_array_data(read(sac_glob), latlon=lat_lon)
+    print(read(sac_glob))
+    print(x)
+    print(t)
+    print(t0)
+    print(geom)
     M, N = x.shape
 
     # ######################### #
@@ -132,9 +147,9 @@ if __name__ == '__main__':
         plt.pause(0.1)
     times = np.array(times)[:, 0]
     beam_results = np.array(beam_results)
-
-    np.save("data/times", times)
-    np.save("data/beam_results", beam_results)
+    print(beam_results)
+    np.save("KAUT/times", times)
+    np.save("KAUT/beam_results", beam_results)
     # Define best beam time series and residuals
     back_az = beam_results[np.argmax(beam_results[:, 2]), 0]
     tr_vel = beam_results[np.argmax(beam_results[:, 2]), 1]
@@ -160,7 +175,7 @@ if __name__ == '__main__':
     plt.subplot(M + 1, 1, M + 1)
     plt.xlim([t[t_mask][0], t[t_mask][-1]])
     plt.plot(t[t_mask], signal_wvfrm[:len(t[t_mask])], 'b-')
-    plt.pause(230.0)
+    plt.pause(5)
 
     plt.close()
     p.close()
