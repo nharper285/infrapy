@@ -1,0 +1,46 @@
+[
+    {
+        "Name": "",
+        "Time (UTC)": "2023-05-08T13:12:07.940000",
+        "F Stat.": 12.6996,
+        "Trace Vel. (m/s)": 344.1,
+        "Back Azimuth": 100.99,
+        "Latitude": 46.963808,
+        "Longitude": -122.08058,
+        "Elevation (m)": null,
+        "Start": -2.0,
+        "End": 0.0,
+        "Freq Range": [
+            0.5,
+            2.5
+        ],
+        "Array Dim.": 3,
+        "Method": null,
+        "Event": "",
+        "Note": "InfraPy CLI detection",
+        "Network": "",
+        "Station": ""
+    },
+    {
+        "Name": "",
+        "Time (UTC)": "2023-05-08T13:13:13.940000",
+        "F Stat.": 36.3992,
+        "Trace Vel. (m/s)": 333.94,
+        "Back Azimuth": 122.35,
+        "Latitude": 46.963808,
+        "Longitude": -122.08058,
+        "Elevation (m)": null,
+        "Start": -4.0,
+        "End": 28.0,
+        "Freq Range": [
+            0.5,
+            2.5
+        ],
+        "Array Dim.": 3,
+        "Method": null,
+        "Event": "",
+        "Note": "InfraPy CLI detection",
+        "Network": "",
+        "Station": ""
+    }
+]

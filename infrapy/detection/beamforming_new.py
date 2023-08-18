@@ -941,7 +941,9 @@ def run_fk(stream, latlon, freq_band, window_length, sub_window_length, window_s
         for win_n, window_start in enumerate(np.arange(t[0], t[-1], window_step)):
             if window_start + window_length > t[-1]:
                 break
-
+            
+            # print("Running analysis on time window " + str(window_start) + " - " + str(window_start + window_length), end=' ')
+            # print(" seconds in frequency band " + str(freq_min) + " - " + str(freq_max) + " Hz...")
             beam_times = beam_times + [[t0 + np.timedelta64(int(window_start + window_length / 2.0), 's')]]
             args = args + [[x, t, geom, freq_band, method, [window_start, window_start + window_length], sub_window_length, delays, back_az_vals, trc_vel_vals, prog_bar.set_step(win_n, win_cnt, prog_bar_len)]]
         beam_peaks = np.array(pl.map(beam_window_wrapper, args)).reshape(len(beam_times), 3)
@@ -951,6 +953,8 @@ def run_fk(stream, latlon, freq_band, window_length, sub_window_length, window_s
             if window_start + window_length > t[-1]:
                 break
             
+            # print("Running analysis on time window " + str(window_start) + " - " + str(window_start + window_length), end=' ')
+            # print(" seconds in frequency band " + str(freq_min) + " - " + str(freq_max) + " Hz...")
             peaks = beam_window(x, t, geom, freq_band, method, [window_start, window_start + window_length], sub_window_length, delays, back_az_vals, trc_vel_vals, prog_bar.set_step(win_n, win_cnt, prog_bar_len))
             beam_times = beam_times + [[t0 + np.timedelta64(int(window_start + window_length / 2.0), 's')]]
             beam_peaks = beam_peaks + [[peaks[0][0], peaks[0][1], peaks[0][2]]]

@@ -19,30 +19,41 @@ if __name__ == '__main__':
     #########################
     ### Define parameters ###
     #########################
-
+    loc_event_label = "RAINIER-EVENT-B"
     # Read in detections from file
-    det_list = data_io.json_to_detection_list('data/example1.dets.json')
-
-    # define joint-likelihood calculation parameters
-    width = 10.0
-    rng_max = 3000.0
+    det_list = data_io.set_det_list(f'{loc_event_label}/*', merge=True)
 
     # define clustering parameters
-    dist_max = 10.0
-    clustering_threshold = 5.0
-    trimming_thresh = 3.0
+    back_az_width = 10.0
+    range_max = 2000.0
+    resolution = 180
+    distance_matrix_max = 8.0
+    cluster_linkage = "weighted"
+    cluster_threshold = 7.0
+    trimming_threshold = 3.8
+    
+    starttime = None
+    endtime = None
     
     pl = Pool(cpu_count() - 1)
     ######################
     #### Run analysis ####
     ######################
-    labels, dists = hjl.run(det_list, clustering_threshold, dist_max=dist_max, bm_width=width, rng_max=rng_max, trimming_thresh=trimming_thresh, pool=pl,show_result=True)
+    events, event_qls = hjl.id_events(det_list, cluster_threshold, starttime=starttime, endtime=endtime, dist_max=distance_matrix_max, 
+                                    bm_width=back_az_width, rng_max=range_max, rad_min=100.0, rad_max=(range_max / 4.0), 
+                                    resol=resolution, linkage_method=cluster_linkage, trimming_thresh=trimming_threshold, 
+                                    pool=pl)
     
+    data_io.write_events(events, event_qls, det_list, f"{loc_event_label}/{loc_event_label}")    
+    print("Identified " + str(len(events)) + " events." + '\n')
+    
+    # Graph Analysis
+    labels, dists = hjl.run(det_list, cluster_threshold, dist_max=distance_matrix_max, bm_width=back_az_width, rng_max=range_max, trimming_thresh=trimming_threshold, pool=pl,show_result=True)
     # Summarize clusters
     clusters, qualities = hjl.summarize_clusters(labels, dists)
     for n in range(len(clusters)):
         print("Cluster:", clusters[n], '\t', "Cluster Quality:", 10.0**(-qualities[n]))
-    
+        
     pl.close()
     pl.terminate()
 

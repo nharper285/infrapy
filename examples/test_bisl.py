@@ -16,9 +16,7 @@ from infrapy.location import visualization as vis
 #       Define Inputs       #
 # ######################### #
 
-# Define ground_truth if known (41.131, -112.896 for UTTR; Test includes show in June 2004)
-grnd_trth = [41.131, -112.896, np.datetime64('2004-06-02T17:23:04.0')]
-
+detection_label = "RAINIER-EVENT-A"
 # Define localization parameters
 bm_width = 12.5
 rad_min, rad_max = 50.0, 500.0
@@ -26,7 +24,7 @@ rng_max = np.pi / 2.0 * 6370.0
 resolution = int(np.sqrt(1e5))
 
 # Load detection list from json file
-det_list = data_io.json_to_detection_list('data/example2.dets.json')
+det_list = data_io.json_to_detection_list(f'{detection_label}/results.dets.json')
 
 # Plot detections
 vis.plot_dets_on_map(det_list)
