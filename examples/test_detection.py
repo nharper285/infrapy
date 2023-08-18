@@ -37,8 +37,15 @@ if __name__ == '__main__':
 
     # Detection params
     # times_file, beam_results_file = None, None
-    local_detect_label = "STYX"
-
+    local_detect_label = "PR05"
+    
+    ### MUST UPDATE, FLOATS ONLY
+    fk_freq_min = 1.0
+    fk_freq_max = 10.0
+    manual_freq_label = f"{fk_freq_min}_{fk_freq_max}"
+    # fk_window_len = 10.0
+    # window_step = 2.0
+    
     times_file, beam_results_file = f"{local_detect_label}/times.npy", f"{local_detect_label}/beam_results.npy"
     sac_glob = f"{local_detect_label}/*.SAC"
     stream = read(sac_glob)
@@ -46,10 +53,7 @@ if __name__ == '__main__':
 
     sig_start, sig_end = 0, 600
 
-    # fk_freq_min = 1.0
-    # fk_freq_max = 10.0
-    # fk_window_len = 10.0
-    # window_step = 2.0
+   
 
     det_win_len = 3600
     p_value = 0.05
@@ -74,18 +78,18 @@ if __name__ == '__main__':
     # else:
     #     print('No beamforming input provided')
 
-    temp = np.loadtxt(f"{local_detect_label}/{local_detect_label}.fk_results.dat")
+    temp = np.loadtxt(f"{local_detect_label}/{local_detect_label}_{manual_freq_label}.fk_results.dat")
     dt, beam_peaks = temp[:, 0], temp[:, 1:]
     print(beam_peaks)
-    temp = open(f"{local_detect_label}/{local_detect_label}.fk_results.dat", 'r')
+    temp = open(f"{local_detect_label}/{local_detect_label}_{manual_freq_label}.fk_results.dat", 'r')
     data_info = []
     for line in temp:
         if "t0:" in line:
             t0 = np.datetime64(line.split(' ')[-1][:-1])
         elif "freq_min" in line:
-            freq_min = float(line.split(' ')[-1])
+            file_freq_min = float(line.split(' ')[-1])
         elif "freq_max" in line:
-            freq_max = float(line.split(' ')[-1])
+            file_freq_max = float(line.split(' ')[-1])
         elif "window_len" in line and "sub_window_len" not in line:
             fk_window_len = float(line.split(' ')[-1])
         elif "channel_cnt" in line:
@@ -99,12 +103,17 @@ if __name__ == '__main__':
         elif "method" in line:
             method = line.split(' ')[-1][:-1]
 
-    freq_label = f"{freq_min}_{freq_max}"
+    freq_label = f"{file_freq_min}_{file_freq_max}"
+    
+    if freq_label != manual_freq_label:
+        print(f"{freq_label} {manual_freq_label}")
+        print("FREQUENCY LABELS DON'T MATCH. RERUN WITH CORRECT LABELS. EXITING.")
+        sys.exit()
     
     beam_times = np.array([t0 + np.timedelta64(int(dt_n * 1e3), 'ms') for dt_n in dt])
     stream_info = [os.path.commonprefix([info.split('.')[j] for info in data_info]) for j in [0,1,3]]
 
-    TB_prod = (freq_max - freq_min) * fk_window_len
+    TB_prod = (file_freq_max - file_freq_min) * fk_window_len
     min_seq = max(2, int(min_duration / fk_window_len))
 
     ######################################
@@ -116,8 +125,8 @@ if __name__ == '__main__':
 
     det_list = []
     for det_info in dets:
-        det_list = det_list + [data_io.define_detection(det_info, [array_lat, array_lon], channel_cnt, [freq_min, freq_max], note="InfraPy CLI detection")]
-    print("Writing detections to " + local_detect_label + ".dets.json")
+        det_list = det_list + [data_io.define_detection(det_info, [array_lat, array_lon], channel_cnt, [file_freq_min, file_freq_max], note="InfraPy CLI detection")]
+    print(f"Writing detections to {local_detect_label}/{local_detect_label}_{freq_label}.dets.json")
     data_io.detection_list_to_json(f"{local_detect_label}/{local_detect_label}_{freq_label}.dets.json", det_list)
 
     print('\n' + "Detection Summary:")

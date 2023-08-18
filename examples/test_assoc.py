@@ -19,7 +19,7 @@ if __name__ == '__main__':
     #########################
     ### Define parameters ###
     #########################
-    loc_event_label = "RAINIER-EVENT-B"
+    loc_event_label = "RAINIER-EVENT-C"
     # Read in detections from file
     det_list = data_io.set_det_list(f'{loc_event_label}/*', merge=True)
 

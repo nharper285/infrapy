@@ -1,0 +1,24 @@
+[
+    {
+        "Name": "",
+        "Time (UTC)": "2023-05-08T13:11:35.940000",
+        "F Stat.": 10.8466,
+        "Trace Vel. (m/s)": 416.84,
+        "Back Azimuth": 16.7,
+        "Latitude": 46.730454,
+        "Longitude": -121.857388,
+        "Elevation (m)": null,
+        "Start": -2.0,
+        "End": 2.0,
+        "Freq Range": [
+            0.1,
+            5.0
+        ],
+        "Array Dim.": 3,
+        "Method": null,
+        "Event": "",
+        "Note": "InfraPy CLI detection",
+        "Network": "",
+        "Station": ""
+    }
+]
