@@ -1,0 +1,90 @@
+[
+    {
+        "Name": "",
+        "Time (UTC)": "2023-05-08T13:08:49.940000",
+        "F Stat.": 2.7636,
+        "Trace Vel. (m/s)": 363.28,
+        "Back Azimuth": 109.38,
+        "Latitude": 46.93003,
+        "Longitude": -121.988387,
+        "Elevation (m)": null,
+        "Start": -2.0,
+        "End": 0.0,
+        "Freq Range": [
+            1.0,
+            10.0
+        ],
+        "Array Dim.": 3,
+        "Method": null,
+        "Event": "",
+        "Note": "InfraPy CLI detection",
+        "Network": "",
+        "Station": ""
+    },
+    {
+        "Name": "",
+        "Time (UTC)": "2023-05-08T13:12:53.940000",
+        "F Stat.": 22.4047,
+        "Trace Vel. (m/s)": 345.08,
+        "Back Azimuth": 118.67,
+        "Latitude": 46.93003,
+        "Longitude": -121.988387,
+        "Elevation (m)": null,
+        "Start": -10.0,
+        "End": 46.0,
+        "Freq Range": [
+            1.0,
+            10.0
+        ],
+        "Array Dim.": 3,
+        "Method": null,
+        "Event": "",
+        "Note": "InfraPy CLI detection",
+        "Network": "",
+        "Station": ""
+    },
+    {
+        "Name": "",
+        "Time (UTC)": "2023-05-08T13:12:25.940000",
+        "F Stat.": 712.8143,
+        "Trace Vel. (m/s)": 493.21,
+        "Back Azimuth": 69.25,
+        "Latitude": 46.795975,
+        "Longitude": -121.884018,
+        "Elevation (m)": null,
+        "Start": -6.0,
+        "End": 16.0,
+        "Freq Range": [
+            0.3,
+            1.6
+        ],
+        "Array Dim.": 3,
+        "Method": null,
+        "Event": "",
+        "Note": "InfraPy CLI detection",
+        "Network": "",
+        "Station": ""
+    },
+    {
+        "Name": "",
+        "Time (UTC)": "2023-05-08T13:12:33.940000",
+        "F Stat.": 87.7665,
+        "Trace Vel. (m/s)": 379.95,
+        "Back Azimuth": 73.3,
+        "Latitude": 46.841748,
+        "Longitude": -121.948853,
+        "Elevation (m)": null,
+        "Start": -4.0,
+        "End": 54.0,
+        "Freq Range": [
+            1.0,
+            10.0
+        ],
+        "Array Dim.": 3,
+        "Method": null,
+        "Event": "",
+        "Note": "InfraPy CLI detection",
+        "Network": "",
+        "Station": ""
+    }
+]
