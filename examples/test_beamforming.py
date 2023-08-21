@@ -28,7 +28,7 @@ if __name__ == '__main__':
     # ######################### #
     #     Define Parameters     #
     # ######################### #
-    local_fk_label = "PR04"
+    local_fk_label = "PR05"
     sac_glob = f"{local_fk_label}/*.SAC"
     stream = read(sac_glob)
     lat_lon = np.load(f"./{local_fk_label}/{local_fk_label}.npy")
