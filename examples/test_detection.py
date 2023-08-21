@@ -37,7 +37,7 @@ if __name__ == '__main__':
 
     # Detection params
     # times_file, beam_results_file = None, None
-    local_detect_label = "PARA"
+    local_detect_label = "TAVI"
     
     ### MUST UPDATE, FLOATS ONLY
     fk_freq_min = 0.3
