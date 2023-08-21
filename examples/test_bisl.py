@@ -24,7 +24,7 @@ rng_max = np.pi / 2.0 * 6370.0
 resolution = int(np.sqrt(1e5))
 
 # Load detection list from json file
-det_list = data_io.json_to_detection_list(f'{detection_label}/{detection_label}-ev0.dets.json')
+det_list = data_io.json_to_detection_list(f'{detection_label}/{detection_label}-ev1.dets.json')
 
 # Plot detections
 vis.plot_dets_on_map(det_list)
