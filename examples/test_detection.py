@@ -37,11 +37,11 @@ if __name__ == '__main__':
 
     # Detection params
     # times_file, beam_results_file = None, None
-    local_detect_label = "PR05"
+    local_detect_label = "PARA"
     
     ### MUST UPDATE, FLOATS ONLY
-    fk_freq_min = 1.0
-    fk_freq_max = 10.0
+    fk_freq_min = 0.3
+    fk_freq_max = 1.6
     manual_freq_label = f"{fk_freq_min}_{fk_freq_max}"
     # fk_window_len = 10.0
     # window_step = 2.0

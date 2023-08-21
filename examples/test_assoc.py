@@ -27,10 +27,14 @@ if __name__ == '__main__':
     back_az_width = 10.0
     range_max = 2000.0
     resolution = 180
-    distance_matrix_max = 8.0
+    distance_matrix_max = 10.0
     cluster_linkage = "weighted"
-    cluster_threshold = 7.0
-    trimming_threshold = 3.8
+    cluster_threshold = 5.0
+    trimming_threshold = 3.0
+    
+    # dist_max = 8.0
+    # clustering_threshold = 7.0
+    # trimming_thresh = 3.8
     
     starttime = None
     endtime = None
