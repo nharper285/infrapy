@@ -29,7 +29,7 @@ if __name__ == '__main__':
     resolution = 180
     distance_matrix_max = 10.0
     cluster_linkage = "weighted"
-    cluster_threshold = 5.5
+    cluster_threshold = 5.0
     trimming_threshold = 3.0
     
     # dist_max = 8.0

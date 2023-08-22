@@ -20,14 +20,16 @@ detection_label = "RAINIER-EVENT-C"
 # Define localization parameters
 bm_width = 12.5
 rad_min, rad_max = 50.0, 500.0
-rng_max = np.pi / 2.0 * 6370.0
+rng_max = 30
 resolution = int(np.sqrt(1e5))
+# detection_region = [46.8523, 121.7603, 30]
+
 
 # Load detection list from json file
 det_list = data_io.json_to_detection_list(f'{detection_label}/{detection_label}-ev1.dets.json')
 
 # Plot detections
-vis.plot_dets_on_map(det_list)
+vis.plot_dets_on_map(det_list, range_max=rng_max)
 
 # ########################## #
 #          Run BISL          #
@@ -41,6 +43,7 @@ result = bisl.run(det_list,
                     rad_max=rad_max, 
                     rng_max=rng_max, 
                     resol=resolution,angle=[-180,180])
+                    # custom_region=detection_region)
 
 print('-' * 75)
 print('BISL Summary\n')
@@ -50,7 +53,7 @@ print('\n' + '-'*75 + '\n')
 # ###############################
 # plot the results from bisl ####
 
-vis.plot_loc(det_list, result)
+vis.plot_loc(det_list, result, range_max=rng_max)
 
 # Define priors, load from file, and display
 # model = infsnd.PathGeometryModel()
