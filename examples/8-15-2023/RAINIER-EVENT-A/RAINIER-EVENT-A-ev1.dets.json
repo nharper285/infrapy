@@ -1,0 +1,156 @@
+[
+    {
+        "Name": "",
+        "Time (UTC)": "2023-08-15T23:30:53",
+        "F Stat.": 3.8913,
+        "Trace Vel. (m/s)": 317.55,
+        "Back Azimuth": 54.37,
+        "Latitude": 46.788986,
+        "Longitude": -121.852905,
+        "Elevation (m)": null,
+        "Start": -18.0,
+        "End": 10.0,
+        "Freq Range": [
+            5.0,
+            20.0
+        ],
+        "Array Dim.": 3,
+        "Method": null,
+        "Event": "",
+        "Note": "InfraPy CLI detection",
+        "Network": "",
+        "Station": ""
+    },
+    {
+        "Name": "",
+        "Time (UTC)": "2023-08-15T23:25:51",
+        "F Stat.": 7.3176,
+        "Trace Vel. (m/s)": 347.39,
+        "Back Azimuth": 71.69,
+        "Latitude": 46.795975,
+        "Longitude": -121.884018,
+        "Elevation (m)": null,
+        "Start": -6.0,
+        "End": 2.0,
+        "Freq Range": [
+            2.5,
+            9.0
+        ],
+        "Array Dim.": 3,
+        "Method": null,
+        "Event": "",
+        "Note": "InfraPy CLI detection",
+        "Network": "",
+        "Station": ""
+    },
+    {
+        "Name": "",
+        "Time (UTC)": "2023-08-15T23:26:09",
+        "F Stat.": 11.2905,
+        "Trace Vel. (m/s)": 366.96,
+        "Back Azimuth": 74.13,
+        "Latitude": 46.795975,
+        "Longitude": -121.884018,
+        "Elevation (m)": null,
+        "Start": -4.0,
+        "End": 8.0,
+        "Freq Range": [
+            2.5,
+            9.0
+        ],
+        "Array Dim.": 3,
+        "Method": null,
+        "Event": "",
+        "Note": "InfraPy CLI detection",
+        "Network": "",
+        "Station": ""
+    },
+    {
+        "Name": "",
+        "Time (UTC)": "2023-08-15T23:27:51",
+        "F Stat.": 25.1072,
+        "Trace Vel. (m/s)": 353.01,
+        "Back Azimuth": 76.1,
+        "Latitude": 46.795975,
+        "Longitude": -121.884018,
+        "Elevation (m)": null,
+        "Start": -90.0,
+        "End": 200.0,
+        "Freq Range": [
+            2.5,
+            9.0
+        ],
+        "Array Dim.": 3,
+        "Method": null,
+        "Event": "",
+        "Note": "InfraPy CLI detection",
+        "Network": "",
+        "Station": ""
+    },
+    {
+        "Name": "",
+        "Time (UTC)": "2023-08-15T23:31:21",
+        "F Stat.": 8.9007,
+        "Trace Vel. (m/s)": 359.07,
+        "Back Azimuth": 74.67,
+        "Latitude": 46.795975,
+        "Longitude": -121.884018,
+        "Elevation (m)": null,
+        "Start": -4.0,
+        "End": 6.0,
+        "Freq Range": [
+            2.5,
+            9.0
+        ],
+        "Array Dim.": 3,
+        "Method": null,
+        "Event": "",
+        "Note": "InfraPy CLI detection",
+        "Network": "",
+        "Station": ""
+    },
+    {
+        "Name": "",
+        "Time (UTC)": "2023-08-15T23:33:03",
+        "F Stat.": 19.2421,
+        "Trace Vel. (m/s)": 354.55,
+        "Back Azimuth": 75.91,
+        "Latitude": 46.795975,
+        "Longitude": -121.884018,
+        "Elevation (m)": null,
+        "Start": -86.0,
+        "End": 48.0,
+        "Freq Range": [
+            2.5,
+            9.0
+        ],
+        "Array Dim.": 3,
+        "Method": null,
+        "Event": "",
+        "Note": "InfraPy CLI detection",
+        "Network": "",
+        "Station": ""
+    },
+    {
+        "Name": "",
+        "Time (UTC)": "2023-08-15T23:34:25",
+        "F Stat.": 7.3022,
+        "Trace Vel. (m/s)": 369.07,
+        "Back Azimuth": 77.01,
+        "Latitude": 46.795975,
+        "Longitude": -121.884018,
+        "Elevation (m)": null,
+        "Start": -10.0,
+        "End": 8.0,
+        "Freq Range": [
+            2.5,
+            9.0
+        ],
+        "Array Dim.": 3,
+        "Method": null,
+        "Event": "",
+        "Note": "InfraPy CLI detection",
+        "Network": "",
+        "Station": ""
+    }
+]

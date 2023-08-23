@@ -19,9 +19,10 @@ if __name__ == '__main__':
     #########################
     ### Define parameters ###
     #########################
-    loc_event_label = "RAINIER-EVENT-C"
+    loc_event_label = "RAINIER-EVENT-A"
+    date = "8-15-2023"
     # Read in detections from file
-    det_list = data_io.set_det_list(f'{loc_event_label}/*', merge=True)
+    det_list = data_io.set_det_list(f'./{date}/{loc_event_label}/*', merge=True)
 
     # define clustering parameters
     back_az_width = 10.0
@@ -48,7 +49,7 @@ if __name__ == '__main__':
                                     resol=resolution, linkage_method=cluster_linkage, trimming_thresh=trimming_threshold, 
                                     pool=pl)
     
-    data_io.write_events(events, event_qls, det_list, f"{loc_event_label}/{loc_event_label}")    
+    data_io.write_events(events, event_qls, det_list, f"./{date}/{loc_event_label}/{loc_event_label}")    
     print("Identified " + str(len(events)) + " events." + '\n')
     
     # Graph Analysis

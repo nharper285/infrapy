@@ -37,21 +37,20 @@ if __name__ == '__main__':
 
     # Detection params
     # times_file, beam_results_file = None, None
-    local_detect_label = "TAVI"
-    
+    local_detect_label = "COPP"
+    date = "8-15-2023"
     ### MUST UPDATE, FLOATS ONLY
-    fk_freq_min = 0.3
-    fk_freq_max = 1.6
+    fk_freq_min, fk_freq_max = 5.0, 20.0 
     manual_freq_label = f"{fk_freq_min}_{fk_freq_max}"
     # fk_window_len = 10.0
     # window_step = 2.0
     
-    times_file, beam_results_file = f"{local_detect_label}/times.npy", f"{local_detect_label}/beam_results.npy"
-    sac_glob = f"{local_detect_label}/*.SAC"
+    times_file, beam_results_file = f"./{date}/{local_detect_label}/times.npy", f"./{date}/{local_detect_label}/beam_results.npy"
+    sac_glob = f"./{date}/{local_detect_label}/*.SAC"
     stream = read(sac_glob)
-    lat_lon = np.load(f"{local_detect_label}/{local_detect_label}.npy")
+    lat_lon = np.load(f"./{date}/{local_detect_label}/{local_detect_label}.npy")
 
-    sig_start, sig_end = 0, 600
+    sig_start, sig_end = None, None
 
    
 
@@ -78,10 +77,10 @@ if __name__ == '__main__':
     # else:
     #     print('No beamforming input provided')
 
-    temp = np.loadtxt(f"{local_detect_label}/{local_detect_label}_{manual_freq_label}.fk_results.dat")
+    temp = np.loadtxt(f"./{date}/{local_detect_label}/{local_detect_label}_{manual_freq_label}.fk_results.dat")
     dt, beam_peaks = temp[:, 0], temp[:, 1:]
     print(beam_peaks)
-    temp = open(f"{local_detect_label}/{local_detect_label}_{manual_freq_label}.fk_results.dat", 'r')
+    temp = open(f"./{date}/{local_detect_label}/{local_detect_label}_{manual_freq_label}.fk_results.dat", 'r')
     data_info = []
     for line in temp:
         if "t0:" in line:
@@ -114,8 +113,9 @@ if __name__ == '__main__':
     stream_info = [os.path.commonprefix([info.split('.')[j] for info in data_info]) for j in [0,1,3]]
 
     TB_prod = (file_freq_max - file_freq_min) * fk_window_len
-    min_seq = max(2, int(min_duration / fk_window_len))
-
+    # min_seq = max(2, int(min_duration / fk_window_len))
+    min_seq = max(5, int(min_duration / fk_window_len))
+    print(f"Min Sequence: {min_seq}")
     ######################################
     ##      Run detection analysis      ##
     ######################################
@@ -127,7 +127,7 @@ if __name__ == '__main__':
     for det_info in dets:
         det_list = det_list + [data_io.define_detection(det_info, [array_lat, array_lon], channel_cnt, [file_freq_min, file_freq_max], note="InfraPy CLI detection")]
     print(f"Writing detections to {local_detect_label}/{local_detect_label}_{freq_label}.dets.json")
-    data_io.detection_list_to_json(f"{local_detect_label}/{local_detect_label}_{freq_label}.dets.json", det_list)
+    data_io.detection_list_to_json(f"./{date}/{local_detect_label}/{local_detect_label}_{freq_label}.dets.json", det_list)
 
     print('\n' + "Detection Summary:")
     dets_list = []
@@ -135,7 +135,7 @@ if __name__ == '__main__':
         print("Detection time:", det[0], '\t', "Rel. detection onset:", det[1], '\t',"Rel. detection end:", det[2], '\t',end=' ')
         print("Back azimuth:", np.round(det[3], 2), '\t', "Trace velocity:", np.round(det[4], 2), '\t', "F-stat:", np.round(det[5], 2), '\t', "Array dim:", channel_cnt)
 
-    det_vis.plot_fk1(stream, lat_lon, beam_times, beam_peaks, detections=det_list, output_path=f"{local_detect_label}/{local_detect_label}_{freq_label}.png", det_thresh=det_thresh, show_fig=True)
+    det_vis.plot_fk1(stream, lat_lon, beam_times, beam_peaks, detections=det_list, output_path=f"./{date}/{local_detect_label}/{local_detect_label}_{freq_label}.png", det_thresh=det_thresh, show_fig=True)
 
 #### Construct Detection List
 # det_list = []

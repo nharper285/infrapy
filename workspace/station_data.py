@@ -21,10 +21,10 @@ year = 2023
 month = 8
 day = 15
 start_hour = 23
-start_minute = 25 
+start_minute = 20 
 start_second = 0
 end_hour = 23
-end_minute = 59 
+end_minute = 40 
 end_second = 0
 
 date = f"{month}-{day}-{year}"

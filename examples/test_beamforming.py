@@ -26,12 +26,11 @@ from infrapy.utils.data_io import fk_header
 
 if __name__ == '__main__':
 
-    date = "8-15-2023"
-
     # ######################### #
     #     Define Parameters     #
     # ######################### #
-    local_fk_label = "TAVI"
+    local_fk_label = "COPP"
+    date = "8-15-2023"
     sac_glob = f"./{date}/{local_fk_label}/*.SAC"
     stream = read(sac_glob)
     lat_lon = np.load(f"./{date}/{local_fk_label}/{local_fk_label}.npy")
@@ -41,7 +40,7 @@ if __name__ == '__main__':
     # 0.5, 2.5 = KAUT, STYX, seemingly better results for PARA?, seemingly get better f-stat data for most 
     # 1, 10 = PR04, PR05
     ### MUST UPDATE, FLOATS ONLY
-    freq_min, freq_max = 0.3, 1.6 # vs. 1-10??? 2.5 works well for kaut
+    freq_min, freq_max = 5.0, 20.0 # vs. 1-10??? 2.5 works well for kaut
     freq_label = f"{freq_min}_{freq_max}"
     
     window_length, window_step = 10.0, 2.0
@@ -104,7 +103,7 @@ if __name__ == '__main__':
     print('\n' + f"Writing results into {local_fk_label}/{local_fk_label}_{freq_label}.fk_results.dat")
     np.savetxt(f"./{date}/{local_fk_label}/{local_fk_label}_{freq_label}.fk_results.dat", fk_results, header=fk_header)
     
-    det_vis.plot_fk1(read(sac_glob), lat_lon, beam_times, beam_peaks, output_path=f"{local_fk_label}/{local_fk_label}_{freq_label}.png")
+    det_vis.plot_fk1(read(sac_glob), lat_lon, beam_times, beam_peaks, output_path=f"./{date}/{local_fk_label}/{local_fk_label}_{freq_label}.png")
     time.sleep(10)
     
     np.save(f"./{date}/{local_fk_label}/times", beam_times)

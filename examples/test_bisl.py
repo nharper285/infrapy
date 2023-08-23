@@ -16,7 +16,9 @@ from infrapy.location import visualization as vis
 #       Define Inputs       #
 # ######################### #
 
-detection_label = "RAINIER-EVENT-C"
+detection_label = "RAINIER-EVENT-A"
+date = "8-15-2023"
+
 # Define localization parameters
 bm_width = 12.5
 rad_min, rad_max = 50.0, 500.0
@@ -26,7 +28,7 @@ resolution = int(np.sqrt(1e5))
 
 
 # Load detection list from json file
-det_list = data_io.json_to_detection_list(f'{detection_label}/{detection_label}-ev1.dets.json')
+det_list = data_io.json_to_detection_list(f'./{date}/{detection_label}/{detection_label}-ev0.dets.json')
 
 # Plot detections
 vis.plot_dets_on_map(det_list, range_max=rng_max)
