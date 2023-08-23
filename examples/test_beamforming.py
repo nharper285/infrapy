@@ -25,13 +25,16 @@ from infrapy.detection import visualization as det_vis
 from infrapy.utils.data_io import fk_header
 
 if __name__ == '__main__':
+
+    date = "8-15-2023"
+
     # ######################### #
     #     Define Parameters     #
     # ######################### #
     local_fk_label = "TAVI"
-    sac_glob = f"{local_fk_label}/*.SAC"
+    sac_glob = f"./{date}/{local_fk_label}/*.SAC"
     stream = read(sac_glob)
-    lat_lon = np.load(f"./{local_fk_label}/{local_fk_label}.npy")
+    lat_lon = np.load(f"./{date}/{local_fk_label}/{local_fk_label}.npy")
     
     signal_start, signal_end = None, None
     
@@ -87,7 +90,7 @@ if __name__ == '__main__':
     else:
         plt.suptitle("Data window for analysis \n Filtered in frequency range: " + str(freq_min) + " - " + str(freq_max) + "  Hz \n ")
 
-    plt.figure(1).savefig(f"{local_fk_label}/event_data.png")
+    plt.figure(1).savefig(f"./{date}/{local_fk_label}/event_data.png")
     plt.show(block=False)
     
     beam_times, beam_peaks = beamforming_new.run_fk(stream, lat_lon, [freq_min, freq_max], window_length, sub_window_len, window_step, method, back_az_vals, trc_vel_vals, pl)
@@ -99,13 +102,13 @@ if __name__ == '__main__':
         signal_start, signal_end, ns_start, ns_end, window_length, sub_window_len, window_step)
 
     print('\n' + f"Writing results into {local_fk_label}/{local_fk_label}_{freq_label}.fk_results.dat")
-    np.savetxt(f"{local_fk_label}/{local_fk_label}_{freq_label}.fk_results.dat", fk_results, header=fk_header)
+    np.savetxt(f"./{date}/{local_fk_label}/{local_fk_label}_{freq_label}.fk_results.dat", fk_results, header=fk_header)
     
     det_vis.plot_fk1(read(sac_glob), lat_lon, beam_times, beam_peaks, output_path=f"{local_fk_label}/{local_fk_label}_{freq_label}.png")
     time.sleep(10)
     
-    np.save(f"{local_fk_label}/times", beam_times)
-    np.save(f"{local_fk_label}/beam_results", beam_peaks)
+    np.save(f"./{date}/{local_fk_label}/times", beam_times)
+    np.save(f"./{date}/{local_fk_label}/beam_results", beam_peaks)
     plt.show(block=False)
     
     # Define best beam time series and residuals

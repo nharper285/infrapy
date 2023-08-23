@@ -16,15 +16,29 @@ import matplotlib.pyplot as plt
 # 1/26/23 8:09:30- 8:11:30 - PARA/OPCH(weak)/KAUT/GTWY/TAVI/RER/MILD/ARAT(?)/SIFT - Wes says big
 # 1/16/23 0:23:30-0:31:00 - RER/TAVI/KAUT/COPP/ARAT/MILD/PARA/OPCH(?) - avalanche sweep, may be tricky with BISL
 
+# 8-15
 year = 2023
-month = 5
-day = 8
-start_hour = 13
-start_minute = 5 
-start_second = 30
-end_hour = 13
-end_minute = 20 
-end_second = 30
+month = 8
+day = 15
+start_hour = 23
+start_minute = 25 
+start_second = 0
+end_hour = 23
+end_minute = 59 
+end_second = 0
+
+date = f"{month}-{day}-{year}"
+
+# # 5-8
+# year = 2023
+# month = 5
+# day = 8
+# start_hour = 13
+# start_minute = 5 
+# start_second = 30
+# end_hour = 13
+# end_minute = 20 
+# end_second = 30
 
 # year = 2023
 # month = 1
@@ -41,8 +55,9 @@ station = "STYX"
 location = "01"
 channel = "BDF"
 
+station_list = ["TAVI","ARAT","COPP"] # RER
 # station_list = ["PARA", "OPCH", "KAUT", "GTWY", "TAVI", "MILD", "ARAT", "SIFT"]
-station_list = ["PR04","PR05","STYX","GTWY","TAVI","KAUT","PARA"]
+# station_list = ["PR04","PR05","STYX","GTWY","TAVI","KAUT","PARA"]
 # station_list = ["PR04", "PR05", "STYX"]
 lat_long_list = []
 
@@ -67,14 +82,14 @@ for station in station_list:
         # print(f"DATE: {UTCDateTime(year, month, day, start_hour, start_minute, start_second, 935000)}")
 
         try: 
-            stream = client.get_waveforms(network, station, location, channel, UTCDateTime(year, month, day, start_hour, start_minute, start_second, 935000), UTCDateTime(year, month, day, end_hour, end_minute, end_second, 935000), attach_response=True)
+            stream = client.get_waveforms(network, station, location, channel, UTCDateTime(year, month, day, start_hour, start_minute, start_second, 0), UTCDateTime(year, month, day, end_hour, end_minute, end_second, 0), attach_response=True)
             # print(stream)
             # stream.plot()
-            stream.write(f'{network}.{station}.{location}.{channel}.SAC', format='SAC')
+            stream.write(f'../examples/{date}/{station}/{network}.{station}.{location}.{channel}.SAC', format='SAC')
         except: 
             print(f"FAILED TO RETRIEVE DATA: {UTCDateTime(year, month, day, 0, 0, 0, 935000)}")  
     print(coordinate_list)
-    numpy.save(f"{station}.npy", coordinate_list)
+    # numpy.save(f"../examples/{station}.npy", coordinate_list)
 
-local_latlon = numpy.save("local.npy", lat_long_list)
+# local_latlon = numpy.save("local.npy", lat_long_list)
 

@@ -3,9 +3,14 @@ from obspy.clients.fdsn import Client
 
 import numpy
 
-station_list = ["PR04","PR05","STYX","GTWY","TAVI","KAUT","PARA"]
+# date = "5-8-2023"
+# station_list = ["PR04","PR05","STYX","GTWY","TAVI","KAUT","PARA"]
+
+date = "8-15-2023"
+station_list = ["TAVI","ARAT","COPP"] # RER
 
 client = Client('IRIS')
+
 
 for station in station_list:     
     inv = client.get_stations(network='CC', station=station, location='*', channel='BDF', starttime=UTCDateTime(), level='response')
@@ -16,7 +21,7 @@ for station in station_list:
         coord = inv.get_coordinates(seed_id=seed)
         coord_list.append([coord['latitude'], coord['longitude']])
     print(coord_list)
-    numpy.save(f"{station}.npy", coord_list)
+    numpy.save(f"../examples/{date}/{station}/{station}.npy", coord_list)
 
 
 
